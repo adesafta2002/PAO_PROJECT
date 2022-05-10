@@ -1,0 +1,2 @@
+100,false,2,Adelin,Safta,1,1,100,2,none,EC
+100,false,30,Adelin,Safta,3,1,200,1,,FC
