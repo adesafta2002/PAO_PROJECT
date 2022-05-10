@@ -25,19 +25,6 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "baggageCount=" + baggageCount +
-                ", isOneway=" + isOneway +
-                ", seat=" + seat +
-                ", clientFname='" + clientFname + '\'' +
-                ", clientLname='" + clientLname + '\'' +
-                ", flightId=" + flightId +
-                ", ticketId=" + ticketId +
-                '}';
-    }
-
     public int getBaggageCount() {
         return baggageCount;
     }

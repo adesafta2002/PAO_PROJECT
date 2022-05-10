@@ -24,7 +24,7 @@ public class TicketService {
 
     private void initializeTicketsList() {
         try{
-            ArrayList<String> initialTickets = storageHelper.readFromFile("RestaurantsCsv.txt");
+            ArrayList<String> initialTickets = storageHelper.readFromFile("TicketsCsv.txt");
             initialTickets.forEach(ticketString ->{
                 String[] constructorValues = ticketString.split(",");
                 if(constructorValues[constructorValues.length-1].equals("FC")){
