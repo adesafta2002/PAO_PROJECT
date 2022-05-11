@@ -39,6 +39,7 @@ public class EmployeeService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing employees list");
         }
+        this.storageHelper.logActivity("Initialized employee list");
     }
 
     public void addNewEmployee() {
@@ -86,6 +87,7 @@ public class EmployeeService {
         this.saveEmployeeToCsv(csvValuesForLine);
         Employee employee =  new Employee(person.getFirstName(),person.getLastName(),person.getAge(),person.getPersonId(),salary,position,experience);
         employees.add(employee);
+        this.storageHelper.logActivity("Added employee");
     }
 
     private void saveEmployeeToCsv(String[] csvValuesForLine){

@@ -29,6 +29,7 @@ public class FlightService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing flights list");
         }
+        this.storageHelper.logActivity("Initialized flight list");
     }
 
     public void addFlight(Flight flight){
@@ -65,6 +66,7 @@ public class FlightService {
         this.saveFlightToCsv(csvValuesForLine);
         Flight newFlight = new Flight(seats,isFlightPrivate,this.airportName,fuel,flightID,crewMembersNumber,companyName,crewMembers);
         this.addFlight(newFlight);
+        this.storageHelper.logActivity("Added new flight");
     }
 
     private ArrayList<String> addCrewMembers(){
@@ -85,6 +87,7 @@ public class FlightService {
         this.flights.forEach(flight ->{
             System.out.println(flight.toString());
         });
+        this.storageHelper.logActivity("Printed all flights");
     }
 
     private void saveFlightToCsv(String[] csvValuesForLine){
@@ -93,6 +96,7 @@ public class FlightService {
     }
 
     public Flight findFlightById(int id){
+        this.storageHelper.logActivity("Searched flight by id: " + Integer.toString(id));
         for (Flight flight : this.flights) {
             if (flight.getFlightId() == id) {
                 return flight;

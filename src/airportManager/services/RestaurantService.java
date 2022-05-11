@@ -30,6 +30,7 @@ public class RestaurantService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing restaurants list");
         }
+        this.storageHelper.logActivity("Initialized restaurant list");
     }
 
     public void addNewRestaurant() {
@@ -45,6 +46,7 @@ public class RestaurantService {
         this.saveRestaurantsToCsv(csvValuesForLine);
         Restaurant restaurant = new Restaurant(restaurantName, specific, location);
         this.restaurants.add(restaurant);
+        this.storageHelper.logActivity("Added new restaurant");
     }
 
     private void saveRestaurantsToCsv(String[] csvValuesForLine){
@@ -56,5 +58,6 @@ public class RestaurantService {
         this.restaurants.forEach(restaurant ->{
             System.out.println(restaurant.toString());
         });
+        this.storageHelper.logActivity("Printed all restaurants");
     }
 }

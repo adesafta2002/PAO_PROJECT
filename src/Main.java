@@ -10,7 +10,7 @@ public class Main {
         airportService.flightService.printAllFlights();
 //        System.out.println(airportService.flightService.findFlightById(1).toString()); #commented because it
 //        generates error if flight id 1 doesn't exist
-//
+
         airportService.restaurantService.addNewRestaurant();
         airportService.restaurantService.printAllRestaurants();
 

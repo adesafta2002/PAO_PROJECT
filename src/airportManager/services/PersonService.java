@@ -33,6 +33,7 @@ public class PersonService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing persons list");
         }
+        this.storageHelper.logActivity("Initialized persons list");
     }
 
     public Person addNewPerson() {
@@ -50,6 +51,7 @@ public class PersonService {
         this.savePersonsToCsv(csvValuesForLine);
         Person person = new Person(firstName,lastName,age,id);
         this.persons.add(person);
+        this.storageHelper.logActivity("Added new person");
         return person;
     }
 
@@ -59,6 +61,7 @@ public class PersonService {
                 return person;
             }
         }
+        this.storageHelper.logActivity("Searched person by id: "+ Integer.toString(id));
         return null;
     }
 
@@ -71,5 +74,6 @@ public class PersonService {
         this.persons.forEach(person -> {
             System.out.println(person.toString());
         });
+        this.storageHelper.logActivity("Printed all persons");
     }
 }

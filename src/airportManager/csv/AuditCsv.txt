@@ -8,3 +8,34 @@ Printed all employees,Tue May 10 18:40:19 EEST 2022
 Printed all employees,Tue May 10 18:43:05 EEST 2022
 Printed all employees,Tue May 10 18:44:06 EEST 2022
 Printed all employees,Tue May 10 18:45:21 EEST 2022
+Added new flight,Wed May 11 14:10:07 EEST 2022
+Added new flight,Wed May 11 14:10:07 EEST 2022
+Added new flight,Wed May 11 14:10:07 EEST 2022
+Initialized flight list,Wed May 11 14:10:07 EEST 2022
+Initialized restaurant list,Wed May 11 14:10:07 EEST 2022
+Initialized persons list,Wed May 11 14:10:07 EEST 2022
+Initialized tickets list,Wed May 11 14:10:07 EEST 2022
+Initialized employee list,Wed May 11 14:10:07 EEST 2022
+Printed all flights,Wed May 11 14:10:07 EEST 2022
+Printed all restaurants,Wed May 11 14:10:07 EEST 2022
+Printed all tickets,Wed May 11 14:10:07 EEST 2022
+Printed all employees,Wed May 11 14:10:07 EEST 2022
+Printed all persons,Wed May 11 14:10:07 EEST 2022
+Initialized flight list,Wed May 11 14:11:16 EEST 2022
+Initialized restaurant list,Wed May 11 14:11:16 EEST 2022
+Initialized persons list,Wed May 11 14:11:16 EEST 2022
+Initialized tickets list,Wed May 11 14:11:16 EEST 2022
+Initialized employee list,Wed May 11 14:11:16 EEST 2022
+Added new flight,Wed May 11 14:11:32 EEST 2022
+Printed all flights,Wed May 11 14:11:33 EEST 2022
+Added new restaurant,Wed May 11 14:11:42 EEST 2022
+Printed all restaurants,Wed May 11 14:11:42 EEST 2022
+Printed all flights,Wed May 11 14:11:45 EEST 2022
+Searched flight by id: 2,Wed May 11 14:11:49 EEST 2022
+Added new person,Wed May 11 14:12:16 EEST 2022
+Added First Class ticket,Wed May 11 14:12:16 EEST 2022
+Printed all tickets,Wed May 11 14:12:16 EEST 2022
+Added new person,Wed May 11 14:12:54 EEST 2022
+Added employee,Wed May 11 14:12:54 EEST 2022
+Printed all employees,Wed May 11 14:12:54 EEST 2022
+Printed all persons,Wed May 11 14:12:54 EEST 2022

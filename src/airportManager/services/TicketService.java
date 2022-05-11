@@ -37,6 +37,7 @@ public class TicketService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing restaurants list");
         }
+        this.storageHelper.logActivity("Initialized tickets list");
     }
 
 
@@ -92,11 +93,13 @@ public class TicketService {
             this.saveTicketsToCsv(csvValuesForLine);
             EconomyClass economyClass = new EconomyClass(baggageCount,isOneway,seat,person.getFirstName(),person.getLastName(),flightId,ticketId,100,2,freeMeal);
             tickets.add(economyClass);
+            this.storageHelper.logActivity("Added Economy Class ticket");
         } else {
             String[] csvValuesForLine = new String[]{Integer.toString(baggageCount),Boolean.toString(isOneway),Integer.toString(seat),person.getFirstName(),person.getLastName(),Integer.toString(flightId),Integer.toString(ticketId),"200",Integer.toString(ticketId),"","FC"};
             this.saveTicketsToCsv(csvValuesForLine);
             FirstClass firstClass = new FirstClass(baggageCount,isOneway,seat,person.getFirstName(),person.getLastName(),flightId,ticketId,200,ticketId,"");
             tickets.add(firstClass);
+            this.storageHelper.logActivity("Added First Class ticket");
         }
     }
 
@@ -109,5 +112,6 @@ public class TicketService {
         this.tickets.forEach(ticket ->{
             System.out.println(ticket.toString());
         });
+        this.storageHelper.logActivity("Printed all tickets");
     }
 }
