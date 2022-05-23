@@ -4,6 +4,8 @@ import airportManager.model.Employee;
 import airportManager.model.Flight;
 import airportManager.model.Person;
 import airportManager.model.Pilot;
+import airportManager.repositories.EmployeeRepository;
+import airportManager.repositories.PilotRepository;
 import airportManager.utils.StorageHelper;
 
 import java.util.ArrayList;
@@ -39,11 +41,19 @@ public class EmployeeService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing employees list");
         }
+        EmployeeRepository employeeRepository =  new EmployeeRepository();
+        List<Employee> employees = employeeRepository.getAll();
+        PilotRepository pilotRepository =  new PilotRepository();
+        List<Pilot> pilots = pilotRepository.getAll();
+        this.employees.addAll(pilots);
+        this.employees.addAll(employees);
         this.storageHelper.logActivity("Initialized employee list");
     }
 
     public void addNewEmployee() {
-        String[] csvValuesForLine;
+//        String[] csvValuesForLine;
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+        PilotRepository pilotRepository = new PilotRepository();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Adding new employee... \n" +
                 "If you want to add a pilot press 1 else press 0");
@@ -77,16 +87,20 @@ public class EmployeeService {
             scanner.nextLine();
             System.out.println("License type: ");
             String licenseType = scanner.nextLine();
-            csvValuesForLine = new String[] {person.getFirstName(),person.getLastName(),Integer.toString(person.getAge()),Integer.toString(person.getPersonId()),Float.toString(salary),position,Integer.toString(experience),Float.toString(flightHours),licenseType};
-            this.saveEmployeeToCsv(csvValuesForLine);
+            //        modified saving to csv to saving to database
+            //            csvValuesForLine = new String[] {person.getFirstName(),person.getLastName(),Integer.toString(person.getAge()),Integer.toString(person.getPersonId()),Float.toString(salary),position,Integer.toString(experience),Float.toString(flightHours),licenseType};
+            //            this.saveEmployeeToCsv(csvValuesForLine);
             Pilot pilot = new Pilot(person.getFirstName(),person.getLastName(),person.getAge(),person.getPersonId(),salary,position,experience,flightHours,licenseType);
+            pilotRepository.save(pilot);
             employees.add(pilot);
             return;
         }
-        csvValuesForLine = new String[] {person.getFirstName(),person.getLastName(),Integer.toString(person.getAge()),Integer.toString(person.getPersonId()),Float.toString(salary),position,Integer.toString(experience)};
-        this.saveEmployeeToCsv(csvValuesForLine);
+//        modified saving to csv to saving to database
+//        csvValuesForLine = new String[] {person.getFirstName(),person.getLastName(),Integer.toString(person.getAge()),Integer.toString(person.getPersonId()),Float.toString(salary),position,Integer.toString(experience)};
+//        this.saveEmployeeToCsv(csvValuesForLine);
         Employee employee =  new Employee(person.getFirstName(),person.getLastName(),person.getAge(),person.getPersonId(),salary,position,experience);
         employees.add(employee);
+        employeeRepository.save(employee);
         this.storageHelper.logActivity("Added employee");
     }
 

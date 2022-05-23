@@ -2,6 +2,7 @@ package airportManager.services;
 
 import airportManager.model.Person;
 import airportManager.model.Restaurant;
+import airportManager.repositories.RestaurantRepository;
 import airportManager.utils.StorageHelper;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class RestaurantService {
     }
 
     private void initializeRestaurantList() {
+        RestaurantRepository restaurantRepository = new RestaurantRepository();
         try{
             ArrayList<String> initialRestaurants = storageHelper.readFromFile("RestaurantsCsv.txt");
             initialRestaurants.forEach(restaurantString ->{
@@ -30,10 +32,13 @@ public class RestaurantService {
         } catch (Exception e) {
             System.out.println("An error occurred while initializing restaurants list");
         }
+        List<Restaurant> restaurants = restaurantRepository.getAll();
+        this.restaurants.addAll(restaurants);
         this.storageHelper.logActivity("Initialized restaurant list");
     }
 
     public void addNewRestaurant() {
+        RestaurantRepository restaurantRepository = new RestaurantRepository();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Adding new restaurant...");
         System.out.println("Restaurant name: ");
@@ -42,10 +47,12 @@ public class RestaurantService {
         String specific = scanner.nextLine();
         System.out.println("Restaurant location: ");
         String location = scanner.nextLine();
-        String[] csvValuesForLine = new String[]{restaurantName, specific, location};
-        this.saveRestaurantsToCsv(csvValuesForLine);
+//        modified saving restaurants to database
+//        String[] csvValuesForLine = new String[]{restaurantName, specific, location};
+//        this.saveRestaurantsToCsv(csvValuesForLine);
         Restaurant restaurant = new Restaurant(restaurantName, specific, location);
         this.restaurants.add(restaurant);
+        restaurantRepository.save(restaurant);
         this.storageHelper.logActivity("Added new restaurant");
     }
 
@@ -59,5 +66,15 @@ public class RestaurantService {
             System.out.println(restaurant.toString());
         });
         this.storageHelper.logActivity("Printed all restaurants");
+    }
+
+    public void deleteRestaurant(String name){
+        RestaurantRepository restaurantRepository = new RestaurantRepository();
+        restaurantRepository.delete(name);
+    }
+
+    public void updateRestaurant( String name, String specific, String location){
+        RestaurantRepository restaurantRepository = new RestaurantRepository();
+        restaurantRepository.update(name,specific,location);
     }
 }

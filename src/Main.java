@@ -1,11 +1,8 @@
 import airportManager.services.AirportService;
 
-
 public class Main {
     public static void main(String[] args) {
         AirportService airportService = new AirportService("TestAirport");
-
-
         airportService.flightService.addNewFlight();
         airportService.flightService.printAllFlights();
 //        System.out.println(airportService.flightService.findFlightById(1).toString()); #commented because it

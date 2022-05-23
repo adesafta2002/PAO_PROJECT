@@ -13,7 +13,11 @@ public class Pilot extends Employee{
     @Override
     public String toString() {
         return "Pilot{" +
-                "salary=" + salary +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", personId=" + personId +
+                ", salary=" + salary +
                 ", position='" + position + '\'' +
                 ", experience=" + experience +
                 ", flightHours=" + flightHours +

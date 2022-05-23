@@ -1,10 +1,10 @@
 package airportManager.model;
 
 public class Person {
-    private String firstName;
-    private String lastName;
-    private int age;
-    private int personId;
+    protected String firstName;
+    protected String lastName;
+    protected int age;
+    protected int personId;
 
     public Person(){
         this.firstName = "";
